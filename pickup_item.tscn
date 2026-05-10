@@ -5,7 +5,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_iedf3"]
 
 [node name="PickupItem" type="Area2D" unique_id=1452979519]
-z_index = 1
 script = ExtResource("1_oimud")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=681635674]
@@ -13,7 +12,7 @@ texture_filter = 1
 scale = Vector2(0.05, 0.05)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=925051180]
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 shape = SubResource("CircleShape2D_iedf3")
 
 [node name="Label" type="Label" parent="." unique_id=1335171720]

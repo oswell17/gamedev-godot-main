@@ -10,23 +10,35 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	if item == null:
 		return null
 		
-	# --- NEW: Create a floating image preview ---
+	# --- NEW: Hide the context menu as soon as we start dragging! ---
+	var main_ui = get_tree().current_scene.get_node_or_null("InventoryUI")
+	if main_ui != null:
+		main_ui.context_menu.hide()
+	# ----------------------------------------------------------------
+		
 	var preview_texture = TextureRect.new()
 	preview_texture.texture = item["icon"]
-	
-	# Shrink the floating image so it isn't massive while dragging
 	preview_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	preview_texture.custom_minimum_size = Vector2(40, 40) 
 	
 	var preview = Control.new()
 	preview.add_child(preview_texture)
-	
-	# Center the image directly under your mouse cursor
 	preview_texture.position = Vector2(-20, -20) 
 	
 	set_drag_preview(preview)
 	
 	return {"origin_slot": slot_index}
+	
+func _gui_input(event: InputEvent) -> void:
+	# Check if we left-clicked on this slot
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		
+		# Only open the menu if there is actually an item here!
+		if GlobalInventory.items[slot_index] != null:
+			# Tell the main UI to open the menu at our mouse position
+			var main_ui = get_tree().current_scene.get_node("InventoryUI")
+			if main_ui:
+				main_ui.open_context_menu(slot_index, get_global_mouse_position())
 
 
 # 2. CAN I DROP THIS HERE?

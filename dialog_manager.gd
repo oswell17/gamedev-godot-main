@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var panel: Panel = $Panel
 @onready var label: Label = $Panel/Label
-@onready var indicator: Label = $Panel/Indicator # NEW: Grabs your indicator
+@onready var indicator: Label = $Panel/Indicator
 
 var is_active: bool = false
 var dialogue_lines: Array[String] = []

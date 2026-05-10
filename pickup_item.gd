@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var item_name: String = "Health Potion"
-@export_enum("consumable", "weapon", "key") var item_type: String = "consumable"
+@export_enum("consumable", "weapon", "key", "flashlight", "armor") var item_type: String = "consumable"
 @export var item_value: int = 20
 
 @onready var prompt: Label = $Label
@@ -10,10 +10,14 @@ extends Area2D
 var can_interact: bool = false
 
 func _ready() -> void:
+	var my_id = name + "_" + str(global_position)
+	
+	if my_id in Global.completed_events:
+		queue_free() 
+		return 
+		
 	prompt.hide()
 	prompt.text = "[E] Pick Up " + item_name
-	
-	# NEW: Change the image as soon as the item is created
 	update_visuals()
 
 # --- NEW: VISUAL UPDATE FUNCTION ---
@@ -21,15 +25,19 @@ func _ready() -> void:
 func update_visuals() -> void:
 	# A match statement is a super clean way to check multiple if/else conditions
 	match item_type:
-		#"consumable":
+		"flashlight":
 			# REPLACE THIS PATH with your actual potion image path!
-			#sprite.texture = preload("res://potion.png") 
+			sprite.texture = preload("res://asset ni oswel/flashlight.png") 
 		"weapon":
-			# REPLACE THIS PATH with your actual weapon image path!
-			sprite.texture = preload("res://PNG_items/items_0015_knife.png")
-		#"key":
+			if item_name == "Knife":
+				sprite.texture = preload("res://PNG_items/items_0015_knife.png")
+			elif item_name == "Pistol": # (Or whatever you name your gun in the Inspector!)
+				sprite.texture = preload("res://PNG_items/items_0014_gun.png")
+		"key":
 			# REPLACE THIS PATH with your actual key image path!
-			#sprite.texture = preload("res://key.png")
+			sprite.texture = preload("res://asset ni oswel/key.png")
+		"armor":
+			sprite.texture = preload("res://PNG_items/items_0010_armor.png")
 
 # --- SIGNALS ---
 
@@ -53,8 +61,11 @@ func _input(event: InputEvent) -> void:
 			"name": item_name,
 			"type": item_type,
 			"value": item_value,
-			"icon": sprite.texture # <--- NEW: Grab the image directly from the sprite!
+			"icon": sprite.texture.resource_path# <--- NEW: Grab the image directly from the sprite!
 		}
-		
 		if GlobalInventory.add_item(my_item_data):
+			# --- THE FIX: Save the exact same ID! ---
+			var my_id = name + "_" + str(global_position)
+			Global.completed_events.append(my_id)
+			
 			queue_free()

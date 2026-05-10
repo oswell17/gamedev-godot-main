@@ -3,20 +3,285 @@
 [ext_resource type="Script" uid="uid://ci48nhkxes44y" path="res://player.gd" id="1_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://metra62rxuwt" path="res://Man/no_weapon/walkblue_000.png" id="1_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://f0642gwu7c54" path="res://Man/no_weapon/walkblue_001.png" id="2_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://bm4gkdnhynsdr" path="res://Man/Walk_gun/Walk_gun_000.png" id="2_3iwfv"]
+[ext_resource type="Texture2D" uid="uid://di3npae2ldm2j" path="res://Man/Gun_Shot/Gun_Shot_000.png" id="2_b4uyv"]
+[ext_resource type="Texture2D" uid="uid://d2o578yrddaw5" path="res://Man/h_death/death1.png" id="2_jm5j8"]
+[ext_resource type="Texture2D" uid="uid://bgpdnrarb0eqd" path="res://Man/a_no_weapon/1.PNG" id="2_qtqh7"]
+[ext_resource type="Texture2D" uid="uid://bixhdd77u0sk3" path="res://Man/h_death/death2.png" id="3_7hik5"]
+[ext_resource type="Texture2D" uid="uid://claulvkyr3k2c" path="res://Man/a_no_weapon/2.PNG" id="3_634y6"]
 [ext_resource type="Texture2D" uid="uid://d0gawy72en0hp" path="res://Man/no_weapon/walkblue_002.png" id="3_dw050"]
+[ext_resource type="Texture2D" uid="uid://dgulcwxqnxcux" path="res://Man/Walk_knife/Walk_knife_000.png" id="3_khis8"]
+[ext_resource type="Texture2D" uid="uid://cxpi6dkhi3xak" path="res://Man/h_knife_attack/Knifeblue_attack_000.png" id="3_pylmc"]
+[ext_resource type="Texture2D" uid="uid://8rku3m8syku" path="res://Man/Walk_gun/Walk_gun_001.png" id="3_qwsg1"]
+[ext_resource type="Texture2D" uid="uid://bnvjt85e1i2fl" path="res://Man/Gun_Shot/Gun_Shot_001.png" id="3_tw8ou"]
+[ext_resource type="Texture2D" uid="uid://b8si5ef41xtw5" path="res://Man/h_knife/Bluewalk_knife_000.png" id="3_urp6f"]
+[ext_resource type="Texture2D" uid="uid://dsbe2jsqur5el" path="res://Man/Walk_gun/Walk_gun_002.png" id="4_1xqrm"]
 [ext_resource type="Texture2D" uid="uid://b3ypewtpm4hfr" path="res://Man/no_weapon/walkblue_003.png" id="4_b26j0"]
+[ext_resource type="Texture2D" uid="uid://evae7cj7xqjh" path="res://Man/Walk_knife/Walk_knife_001.png" id="4_b88wv"]
+[ext_resource type="Texture2D" uid="uid://d1spcx5thkvv" path="res://Man/h_knife/Bluewalk_knife_001.png" id="4_bwjto"]
+[ext_resource type="Texture2D" uid="uid://cv6vd2xb7awx4" path="res://Man/a_no_weapon/3.PNG" id="4_efrwb"]
+[ext_resource type="Texture2D" uid="uid://bo6dh7aols4jf" path="res://Man/h_knife_attack/Knifeblue_attack_001.png" id="4_pbfsw"]
+[ext_resource type="Texture2D" uid="uid://bmrfkuep0mu7a" path="res://Man/h_death/death3.png" id="4_qtqh7"]
+[ext_resource type="Texture2D" uid="uid://d3fbi3adbdxbx" path="res://Man/Gun_Shot/Gun_Shot_002.png" id="4_ygbnx"]
+[ext_resource type="Texture2D" uid="uid://d0naowh1q0qr" path="res://Man/h_death/death4.png" id="5_2wuci"]
+[ext_resource type="Texture2D" uid="uid://b8jnuomvarpcx" path="res://Man/h_knife_attack/Knifeblue_attack_002.png" id="5_5tmop"]
+[ext_resource type="Texture2D" uid="uid://dv4vpoilvhnep" path="res://Man/h_knife/Bluewalk_knife_002.png" id="5_606se"]
+[ext_resource type="Texture2D" uid="uid://i2uiv8esc37n" path="res://Man/Walk_gun/Walk_gun_003.png" id="5_bfour"]
+[ext_resource type="Texture2D" uid="uid://nq0tmk60d3g7" path="res://Man/a_no_weapon/4.PNG" id="5_hiqhm"]
 [ext_resource type="Texture2D" uid="uid://du3foneccmatw" path="res://Man/no_weapon/walkblue_004.png" id="5_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://00ep05nvxmxn" path="res://Man/Walk_knife/Walk_knife_002.png" id="5_pgbbb"]
+[ext_resource type="Texture2D" uid="uid://dt4e3bgmbnxyc" path="res://Man/Gun_Shot/Gun_Shot_003.png" id="5_v2t6f"]
+[ext_resource type="Texture2D" uid="uid://3srdrg2ahj0c" path="res://Man/h_knife_attack/Knifeblue_attack_003.png" id="6_7ahtn"]
+[ext_resource type="Texture2D" uid="uid://71r5irkx0e8h" path="res://Man/Walk_gun/Walk_gun_004.png" id="6_8gr2b"]
+[ext_resource type="Texture2D" uid="uid://ck7ssf5pmhpib" path="res://Man/Walk_knife/Walk_knife_003.png" id="6_331ug"]
+[ext_resource type="Texture2D" uid="uid://ck26khpj0wmxr" path="res://Man/h_death/death5.png" id="6_iruf7"]
+[ext_resource type="Texture2D" uid="uid://denov0abw7132" path="res://Man/Gun_Shot/Gun_Shot_004.png" id="6_l3lcn"]
 [ext_resource type="Texture2D" uid="uid://d0l7xj8xqxych" path="res://Man/no_weapon/walkblue_005.png" id="6_nvl01"]
+[ext_resource type="Texture2D" uid="uid://cakj8fvb2ev2f" path="res://Man/a_no_weapon/5.PNG" id="6_tkwlq"]
+[ext_resource type="Texture2D" uid="uid://bwi0frqfhjo1h" path="res://Man/h_knife/Bluewalk_knife_003.png" id="6_u1c27"]
+[ext_resource type="Texture2D" uid="uid://dgcyxo46ongxj" path="res://Man/h_knife_attack/Knifeblue_attack_004.png" id="7_7lmhl"]
+[ext_resource type="Texture2D" uid="uid://c3k5kdephdnvi" path="res://Man/h_death/death6.png" id="7_j5n4i"]
+[ext_resource type="Texture2D" uid="uid://cewskqr4skilo" path="res://Man/Walk_knife/Walk_knife_004.png" id="7_ny14h"]
+[ext_resource type="Texture2D" uid="uid://cvlw55pamjmww" path="res://Man/h_knife/Bluewalk_knife_004.png" id="7_op7ga"]
+[ext_resource type="Texture2D" uid="uid://bn2y3hukvan8w" path="res://Man/Walk_gun/Walk_gun_005.png" id="7_vl8ci"]
+[ext_resource type="Texture2D" uid="uid://doqguabh5bj8t" path="res://Man/h_knife_attack/Knifeblue_attack_005.png" id="8_dx0e4"]
+[ext_resource type="Texture2D" uid="uid://dvfs8t6fiimfe" path="res://Man/Walk_knife/Walk_knife_005.png" id="8_ibah8"]
+[ext_resource type="Texture2D" uid="uid://bayn3o5a3g2fu" path="res://Man/h_knife/Bluewalk_knife_005.png" id="8_q13i1"]
+[ext_resource type="Texture2D" uid="uid://81jpqxxngek1" path="res://Man/Knife/Knife_000.png" id="9_oybyf"]
+[ext_resource type="Texture2D" uid="uid://coonrdicr0v5p" path="res://Man/Knife/Knife_001.png" id="10_ajfva"]
+[ext_resource type="Texture2D" uid="uid://gbtw3t6yhcd1" path="res://Man/Knife/Knife_002.png" id="11_5ef02"]
+[ext_resource type="Texture2D" uid="uid://d0by4s3cg7uw8" path="res://Man/Knife/Knife_003.png" id="12_pfmca"]
+[ext_resource type="Texture2D" uid="uid://bydjsy8rgffci" path="res://Man/Knife/Knife_004.png" id="13_76oay"]
+[ext_resource type="Texture2D" uid="uid://h6cq6r0whm8q" path="res://Man/Knife/Knife_005.png" id="14_b4uyv"]
+[ext_resource type="Texture2D" uid="uid://7h36vnu54mgi" path="res://Man/Knife/Knife_006.png" id="15_tw8ou"]
+[ext_resource type="Texture2D" uid="uid://c5rpu7klcu3he" path="res://Man/Knife/Knife_007.png" id="16_ygbnx"]
+[ext_resource type="Texture2D" uid="uid://brvttamxpsas5" path="res://light.png" id="26_7hik5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ivps1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_b4uyv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tw8ou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ygbnx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v2t6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l3lcn")
+}],
+"loop": false,
+"name": &"armor_gun_attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3iwfv")
+}],
+"loop": false,
+"name": &"armor_gun_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3iwfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qwsg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1xqrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bfour")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8gr2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vl8ci")
+}],
+"loop": false,
+"name": &"armor_gun_walk",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qtqh7")
+}],
+"loop": false,
+"name": &"armor_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_oybyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ajfva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5ef02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pfmca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_76oay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_b4uyv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_tw8ou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ygbnx")
+}],
+"loop": false,
+"name": &"armor_knife_attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_khis8")
+}],
+"loop": false,
+"name": &"armor_knife_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_khis8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b88wv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pgbbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_331ug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ny14h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ibah8")
+}],
+"loop": false,
+"name": &"armor_knife_walk",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qtqh7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_634y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_efrwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hiqhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tkwlq")
+}],
+"loop": false,
+"name": &"armor_walk",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jm5j8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7hik5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qtqh7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2wuci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iruf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j5n4i")
+}],
+"loop": false,
+"name": &"death",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_2hs0m")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
-"speed": 5.0
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pylmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pbfsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5tmop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7ahtn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7lmhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dx0e4")
+}],
+"loop": false,
+"name": &"knife_attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_urp6f")
+}],
+"loop": false,
+"name": &"knife_idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_urp6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bwjto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_606se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u1c27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_op7ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q13i1")
+}],
+"loop": false,
+"name": &"knife_walk",
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -37,7 +302,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_nvl01")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk",
 "speed": 7.0
 }]
@@ -56,13 +321,25 @@ height = 120
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pylmc"]
+size = Vector2(47, 23)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbfsw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pylmc"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4uyv"]
+bg_color = Color(0, 0, 1, 1)
+
 [node name="Player" type="CharacterBody2D" unique_id=1940328253]
+z_index = 1
 script = ExtResource("1_1jxqw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=643405355]
 scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_ivps1")
-animation = &"idle"
+animation = &"armor_gun_attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=334735444]
 shape = SubResource("CircleShape2D_urp6f")
@@ -72,7 +349,99 @@ zoom = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
 position_smoothing_speed = 12.0
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1807096539]
+[node name="AuraLight" type="PointLight2D" parent="." unique_id=1807096539]
 visible = false
 texture_filter = 1
 texture = SubResource("GradientTexture2D_dw050")
+
+[node name="FlashlightPivot" type="Node2D" parent="." unique_id=217371257]
+position = Vector2(0, 4)
+
+[node name="Flashlight" type="PointLight2D" parent="FlashlightPivot" unique_id=1630975353]
+visible = false
+position = Vector2(-7.523164e-37, 76)
+scale = Vector2(0.46603775, 0.33366534)
+texture = ExtResource("26_7hik5")
+
+[node name="WeaponArea" type="Area2D" parent="." unique_id=918161000]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponArea" unique_id=536850433]
+z_index = 2
+position = Vector2(0.5, 22)
+shape = SubResource("RectangleShape2D_pylmc")
+
+[node name="GunRayCast" type="RayCast2D" parent="." unique_id=1501006207]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1670351972]
+
+[node name="HealthBar" type="ProgressBar" parent="UI" unique_id=746049338]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_pbfsw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pylmc")
+show_percentage = false
+
+[node name="ArmorBar" type="ProgressBar" parent="UI" unique_id=1465999618]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_pbfsw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b4uyv")
+show_percentage = false
+
+[node name="DeathScreen" type="ColorRect" parent="UI" unique_id=405317684]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8666667)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DeathScreen" unique_id=1896171719]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/DeathScreen/VBoxContainer" unique_id=1970490620]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "YOU ARE DEAD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="UI/DeathScreen/VBoxContainer" unique_id=721659981]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Continue"
+
+[node name="MainMenuButton" type="Button" parent="UI/DeathScreen/VBoxContainer" unique_id=1653987381]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Main Menu
+"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="WeaponArea" to="." method="_on_weapon_area_body_entered"]
+[connection signal="body_exited" from="WeaponArea" to="." method="_on_weapon_area_body_exited"]
+[connection signal="pressed" from="UI/DeathScreen/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="UI/DeathScreen/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

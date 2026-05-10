@@ -40,19 +40,19 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 10
 
+[node name="Continue" type="Button" parent="VBoxContainer" unique_id=1103386785]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.46666667, 0.015686275, 0.015686275, 1)
+theme_override_fonts/font = ExtResource("2_7vrkn")
+theme_override_font_sizes/font_size = 36
+text = "Continue"
+
 [node name="Play" type="Button" parent="VBoxContainer" unique_id=400239320]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.46666667, 0.015686275, 0.015686275, 1)
 theme_override_fonts/font = ExtResource("2_7vrkn")
 theme_override_font_sizes/font_size = 36
-text = "PLAY"
-
-[node name="Load" type="Button" parent="VBoxContainer" unique_id=2060600566]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.46666667, 0.015686275, 0.015686275, 1)
-theme_override_fonts/font = ExtResource("2_7vrkn")
-theme_override_font_sizes/font_size = 36
-text = "LOAD"
+text = "NEW GAME"
 
 [node name="Settings" type="Button" parent="VBoxContainer" unique_id=590660866]
 layout_mode = 2
@@ -92,6 +92,7 @@ text = "Geneticide
 Awakening"
 horizontal_alignment = 1
 
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]

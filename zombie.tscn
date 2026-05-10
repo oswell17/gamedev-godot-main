@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://bu8houh860gy3"]
+
+[ext_resource type="Script" uid="uid://dv8kruenxnkl3" path="res://zombie.gd" id="1_jw3ev"]
+[ext_resource type="Texture2D" uid="uid://cbdbvrf1lemdn" path="res://1LVL/Zombie1_female/Attack/Attack_000.png" id="2_5xm6x"]
+[ext_resource type="Texture2D" uid="uid://dl7m6gb5i2k8l" path="res://1LVL/Zombie1_female/Walk/Walk_000.png" id="2_x4h2d"]
+[ext_resource type="Texture2D" uid="uid://dgpd3svubpqfo" path="res://1LVL/Zombie1_female/Attack/Attack_001.png" id="3_f8dj8"]
+[ext_resource type="Texture2D" uid="uid://gumile3jnudh" path="res://1LVL/Zombie1_female/Walk/Walk_001.png" id="3_pub2r"]
+[ext_resource type="Texture2D" uid="uid://c5ldmppmdcwbl" path="res://1LVL/Zombie1_female/Walk/Walk_002.png" id="4_dcb2u"]
+[ext_resource type="Texture2D" uid="uid://dp88qd4w87hyv" path="res://1LVL/Zombie1_female/Attack/Attack_002.png" id="4_ni6fi"]
+[ext_resource type="Texture2D" uid="uid://b80n6tjgqaiu2" path="res://1LVL/Zombie1_female/Attack/Attack_003.png" id="5_2jp71"]
+[ext_resource type="Texture2D" uid="uid://b037xu8ofs3ft" path="res://1LVL/Zombie1_female/Walk/Walk_003.png" id="5_5vm0g"]
+[ext_resource type="Texture2D" uid="uid://j5givehe4qck" path="res://1LVL/Zombie1_female/Walk/Walk_004.png" id="6_fpxwj"]
+[ext_resource type="Texture2D" uid="uid://cafv5vcug7hwn" path="res://1LVL/Zombie1_female/Attack/Attack_004.png" id="6_g0fyk"]
+[ext_resource type="Texture2D" uid="uid://d25h40p0vafrp" path="res://1LVL/Zombie1_female/Attack/Attack_005.png" id="7_jerdl"]
+[ext_resource type="Texture2D" uid="uid://d2gkem7ujcab3" path="res://1LVL/Zombie1_female/Walk/Walk_005.png" id="7_yo31b"]
+[ext_resource type="Texture2D" uid="uid://brkg2wbasywu0" path="res://1LVL/Zombie1_female/Attack/Attack_006.png" id="8_iadna"]
+[ext_resource type="Texture2D" uid="uid://da4ycru31xpwn" path="res://1LVL/Zombie1_female/Walk/Walk_006.png" id="8_kdvb4"]
+[ext_resource type="Texture2D" uid="uid://clc4if4u1mk5t" path="res://1LVL/Zombie1_female/Attack/Attack_007.png" id="9_kxbtl"]
+[ext_resource type="Texture2D" uid="uid://djo5b88dpr67u" path="res://1LVL/Zombie1_female/Walk/Walk_007.png" id="9_ls26a"]
+[ext_resource type="Texture2D" uid="uid://dkfb45x35vc70" path="res://1LVL/Zombie1_female/Walk/Walk_008.png" id="10_5xm6x"]
+[ext_resource type="Texture2D" uid="uid://chwobmm6b6gnm" path="res://1LVL/Zombie1_female/Attack/Attack_008.png" id="10_ayqsr"]
+[ext_resource type="Texture2D" uid="uid://hyd8orpveyej" path="res://1LVL/Zombie1_female/Death/Death_000.png" id="11_iadna"]
+[ext_resource type="Texture2D" uid="uid://dwee6i5w85287" path="res://1LVL/Zombie1_female/Death/Death_001.png" id="12_kxbtl"]
+[ext_resource type="Texture2D" uid="uid://djy5wqan6mx04" path="res://1LVL/Zombie1_female/Death/Death_002.png" id="13_ayqsr"]
+[ext_resource type="Texture2D" uid="uid://cg0ywyueue4m4" path="res://1LVL/Zombie1_female/Death/Death_003.png" id="14_b1usl"]
+[ext_resource type="Texture2D" uid="uid://blg5itho5hlon" path="res://1LVL/Zombie1_female/Death/Death_004.png" id="15_o2vho"]
+[ext_resource type="Texture2D" uid="uid://b0y81ckijpwit" path="res://1LVL/Zombie1_female/Death/Death_005.png" id="16_p12lm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f8dj8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5xm6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f8dj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ni6fi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2jp71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g0fyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jerdl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_iadna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kxbtl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ayqsr")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_iadna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kxbtl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ayqsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_b1usl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_o2vho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_p12lm")
+}],
+"loop": false,
+"name": &"death",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x4h2d")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x4h2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pub2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dcb2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5vm0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fpxwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yo31b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kdvb4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ls26a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5xm6x")
+}],
+"loop": false,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ni6fi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw3ev"]
+size = Vector2(77, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xm6x"]
+size = Vector2(61, 36.75)
+
+[node name="Zombie" type="CharacterBody2D" unique_id=1244593536]
+z_index = 1
+script = ExtResource("1_jw3ev")
+roam_speed = 100.0
+chase_speed = 200.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=80449129]
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_f8dj8")
+animation = &"death"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927216523]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_ni6fi")
+
+[node name="RoamTimer" type="Timer" parent="." unique_id=1824889634]
+wait_time = 4.0
+autostart = true
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1180654213]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1008888438]
+position = Vector2(3.5, 47)
+shape = SubResource("RectangleShape2D_jw3ev")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=730642309]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1526582497]
+position = Vector2(1.5, 24.625)
+shape = SubResource("RectangleShape2D_5xm6x")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="RoamTimer" to="." method="_on_roam_timer_timeout"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

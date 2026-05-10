@@ -22,9 +22,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		can_interact = true
 		
 		if body.global_position.y < global_position.y:
-			prompt.position.y = 40 
+			prompt.position.y = 0
 		else:
-			prompt.position.y = -40 
+			prompt.position.y = 0
 			
 		prompt.show()
 
@@ -40,14 +40,23 @@ func _input(event: InputEvent) -> void:
 
 # --- UPDATED FUNCTION ---
 func toggle_door() -> void:
-	# 1. NEW: Check if the door is locked first!
+	# 1. Check if the door is locked first!
 	if is_locked and not is_open:
-		# Trigger your dialogue manager to tell the player it's locked
-		DialogManager.show_dialogue(["The door is firmly locked.", "It won't budge!"])
 		
-		# 'return' instantly stops the function here, so the door doesn't open
-		return 
-
+		# --- NEW: Check the player's pockets for a key! ---
+		if GlobalInventory.consume_key():
+			# We found a key! Turn off the lock permanently.
+			is_locked = false
+			DialogManager.show_dialogue(["*Click!* You unlocked the door."])
+			
+			# Notice there is NO 'return' here! 
+			# Because we didn't return, the code will continue down below and physically open the door!
+			
+		else:
+			# No key found in the inventory!
+			DialogManager.show_dialogue(["The door is firmly locked.", "You need a key to open it!"])
+			return # Stop the function here so the door stays shut
+			
 	# 2. Normal open/close logic
 	is_open = !is_open 
 	

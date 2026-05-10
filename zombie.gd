@@ -1,0 +1,197 @@
+extends CharacterBody2D
+
+@export var roam_speed: float = 40.0
+@export var chase_speed: float = 120.0
+
+var current_state: String = "ROAM"
+@export var roam_direction: Vector2 = Vector2.RIGHT
+@export var attack_damage: int = 20
+@export var max_health: int = 100
+
+
+# --- NEW: Replaced the math distance with our Hitbox variable ---
+var player_in_attack_range: bool = false
+var current_health: int = max_health
+var player_ref: Node2D = null
+var initial_position: Vector2
+
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var roam_timer: Timer = $RoamTimer
+@onready var detection_area: Area2D = $DetectionArea
+
+func _ready() -> void:
+	initial_position = global_position 
+	var base_id = name + "_" + str(initial_position)
+	
+	# Check our global list to see if this specific zombie is dead
+	for event in Global.completed_events:
+		if event.begins_with(base_id):
+			
+			# We found our death certificate! Split it at the "|" symbol
+			var parts = event.split("|")
+			if parts.size() > 1:
+				# Apply the exact rotation we had when we died
+				anim.rotation = float(parts[1])
+			
+			# Turn into a corpse
+			die() 
+			
+			# --- BONUS FIX: Fast-forward to the end of the death animation! ---
+			# This stops the corpse from re-playing the falling animation on reload
+			var last_frame = anim.sprite_frames.get_frame_count("death") - 1
+			anim.frame = last_frame
+			
+			return # Stop reading _ready()
+
+func _physics_process(_delta: float) -> void:
+		# 1. State Logic
+		
+	if current_state == "DEATH":
+		return
+
+	if current_state == "ROAM":
+		velocity = roam_direction * roam_speed
+		
+	elif current_state == "CHASE" and player_ref != null:
+		# --- NEW: Using the Area2D Hitbox instead of Math! ---
+		if player_in_attack_range:
+			# Player touched our attack circle, swing!
+			start_attack()
+		else:
+			# Player is out of reach, keep running at them
+			var direction = global_position.direction_to(player_ref.global_position)
+			velocity = direction * chase_speed
+			
+	elif current_state == "ATTACK":
+		# Freeze the zombie in place while the attack animation plays
+		velocity = Vector2.ZERO
+
+	# 2. Visuals (Top-Down Rotation)
+	if current_state != "ATTACK":
+		if velocity != Vector2.ZERO:
+			anim.play("walk")
+			anim.rotation = velocity.angle() - (PI / 2.0)
+			
+			if detection_area:
+				detection_area.rotation = velocity.angle() - (PI / 2.0)
+		else:
+			anim.play("idle")
+
+	# 3. Move
+	move_and_slide()
+
+
+# --- ATTACK LOGIC ---
+func start_attack() -> void:
+	current_state = "ATTACK"
+	velocity = Vector2.ZERO 
+	
+	if player_ref != null:
+		var direction_to_player = global_position.direction_to(player_ref.global_position)
+		anim.rotation = direction_to_player.angle() - (PI / 2.0)
+		
+		# Swing the vision box to face the player while attacking
+		if detection_area:
+			detection_area.rotation = anim.rotation 
+			
+		# --- NEW: Deal the damage! ---
+		# We use has_method just to be 100% safe so the game doesn't crash
+		if player_ref.has_method("take_damage"):
+			player_ref.take_damage(attack_damage)
+		
+	anim.play("attack")
+
+
+# --- SIGNALS ---
+func _on_roam_timer_timeout() -> void:
+	if current_state == "ROAM":
+		roam_direction = roam_direction * -1
+
+func _on_detection_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		current_state = "CHASE"
+		player_ref = body
+
+func _on_detection_area_body_exited(body: Node2D) -> void:
+	# --- NEW: If the zombie is dead, ignore this completely! ---
+	if current_state == "DEATH":
+		return
+
+	if body.name == "Player":
+		player_ref = null
+		
+		# Only go back to ROAM instantly if we aren't mid-swing
+		if current_state != "ATTACK":
+			current_state = "ROAM"
+			reset_patrol_direction()
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if anim.animation == "attack":
+		if player_ref != null:
+			current_state = "CHASE"
+		else:
+			current_state = "ROAM"
+			reset_patrol_direction()
+
+# --- NEW HITBOX SIGNALS ---
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		player_in_attack_range = true
+
+func _on_attack_area_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		player_in_attack_range = false
+
+
+# --- HELPER ---
+func reset_patrol_direction() -> void:
+	var reset_dir = velocity.normalized()
+	
+	if abs(reset_dir.x) > abs(reset_dir.y):
+		roam_direction = Vector2(sign(reset_dir.x), 0) 
+	else:
+		roam_direction = Vector2(0, sign(reset_dir.y)) 
+		
+	if roam_direction == Vector2.ZERO:
+		roam_direction = Vector2.RIGHT
+		
+func take_damage(damage_amount: int) -> void:
+	# Ignore damage if we are already dead
+	if current_state == "DEATH":
+		return
+		
+	current_health -= damage_amount
+	print("Take that! Zombie health is now: ", current_health)
+	
+	# Did we just strike the killing blow?
+	if current_health <= 0:
+		die()
+
+func die() -> void:
+	# 1. Create the base ID and grab the current rotation
+	var base_id = name + "_" + str(initial_position)
+	var save_string = base_id + "|" + str(anim.rotation)
+	
+	# 2. Check if we already saved this death to avoid duplicates
+	var already_saved = false
+	for event in Global.completed_events:
+		if event.begins_with(base_id):
+			already_saved = true
+			break
+			
+	if not already_saved:
+		Global.completed_events.append(save_string)
+		
+	# 3. The rest of your normal death logic
+	current_state = "DEATH"
+	velocity = Vector2.ZERO 
+	
+	$CollisionShape2D.set_deferred("disabled", true)
+	if detection_area:
+		detection_area.queue_free()
+	if has_node("AttackArea"):
+		$AttackArea.queue_free()
+		
+	z_index = 0
+	anim.play("death")
+		

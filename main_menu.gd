@@ -1,13 +1,43 @@
 extends Control
 
 func _ready():
-	# --- NEW: RETURN TO NORMAL MOUSE ---
-	Input.set_custom_mouse_cursor(null) 
+	Input.set_custom_mouse_cursor(null)
+	
+	# Check if a save file exists on the hard drive
+	if FileAccess.file_exists(Global.SAVE_PATH):
+		$VBoxContainer/Continue.show() # Show the Continue button
+	else:
+		$VBoxContainer/Continue.hide() # Hide it if they are a brand new player
+
+# --- CONTINUE BUTTON (NEW) ---"custom_image"
+func _on_continue_pressed():
+	
+	if Global.load_game():
+		
+		# Check if we actually saved a scene path
+		if Global.current_scene_path != "":
+			get_tree().change_scene_to_file(Global.current_scene_path)
+		else:
+			# Fallback just in case something goes wrong
+			get_tree().change_scene_to_file("res://main_level.tscn")
+	var crosshair_img = load("res://asset ni oswel/crosshair.png")
+	Input.set_custom_mouse_cursor(crosshair_img, Input.CURSOR_ARROW, Vector2(30, 32))
 
 # --- PLAY BUTTON ---
 func _on_play_pressed():
-	# This loads your Level Select / Play Page. 
+	# Wipe old global data just in case they are restarting
+	Global.has_checkpoint = false
+	GlobalInventory.current_weapons.clear()
+	GlobalInventory.items.fill(null)
+	
+	# Optional: Delete the old save file
+	if FileAccess.file_exists(Global.SAVE_PATH):
+		DirAccess.remove_absolute(Global.SAVE_PATH)
+		
 	get_tree().change_scene_to_file("res://intro.tscn")
+	
+	var crosshair_img = load("res://asset ni oswel/crosshair.png")
+	Input.set_custom_mouse_cursor(crosshair_img, Input.CURSOR_ARROW, Vector2(30, 32))
 
 # --- SETTINGS BUTTON (UPDATED) ---
 func _on_settings_pressed():

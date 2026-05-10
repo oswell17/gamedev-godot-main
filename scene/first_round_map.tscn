@@ -14,9 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://33o1i0vnqi1u" path="res://Doors/door.tscn" id="11_isbbw"]
 [ext_resource type="PackedScene" uid="uid://dgimbyh3cqjvm" path="res://Doors/doorrev.tscn" id="12_isbbw"]
 [ext_resource type="PackedScene" uid="uid://bsgi20x5qvlns" path="res://note.tscn" id="12_wioj2"]
+[ext_resource type="PackedScene" uid="uid://chm5xlnjkiabt" path="res://signage.tscn" id="14_0oe44"]
 [ext_resource type="PackedScene" uid="uid://1oshkcj05lhe" path="res://pause_menu.tscn" id="14_8rsml"]
 [ext_resource type="PackedScene" uid="uid://tgkuqorfx0o0" path="res://pickup_item.tscn" id="15_0qgq1"]
+[ext_resource type="PackedScene" uid="uid://md3r42yr2nvf" path="res://signagerev.tscn" id="15_qaiic"]
 [ext_resource type="PackedScene" uid="uid://dec5doweh8qwr" path="res://inventory_ui.tscn" id="15_rokei"]
+[ext_resource type="PackedScene" uid="uid://bu8houh860gy3" path="res://zombie.tscn" id="20_klhct"]
+[ext_resource type="PackedScene" uid="uid://t206we2mnst3" path="res://checkpoint.tscn" id="21_hdg0t"]
+[ext_resource type="PackedScene" uid="uid://buxeljlbqn7n1" path="res://level_transition.tscn" id="22_8468n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_isbbw"]
 texture = ExtResource("1_6dla7")
@@ -25471,23 +25476,230 @@ tile_set = SubResource("TileSet_0aypv")
 
 [node name="Note" parent="." unique_id=358346354 instance=ExtResource("12_wioj2")]
 position = Vector2(161.99998, 166.4)
+note_pages = Array[String](["Hey. If you’re reading this, the sedatives finally wore off. I waited as long as I could,", "but the hoard broke through the north wing and the smell started drawing them to this floor.", "I left the key for 4th floor main door to room 428. Probably the staff close the door on this floor", "to avoid the horde to reach this room.", "I left you a flashlight and knife on room 408, 'Cause I know you might need it.", "Move to 3rd floor, and I have something for you that might help you escape this hospital.", "Don't make me regret leaving you behind. Move fast, stay quiet."])
+
+[node name="Note2" parent="." unique_id=806188792 instance=ExtResource("12_wioj2")]
+position = Vector2(2194.9998, 1940.1997)
+scale = Vector2(0.9999998, 0.9999998)
+note_pages = Array[String](["If you are reading this, then you finally found the key.", "We are going to Doctor's Office Room 1, we already camped there and that room is already safe.", "So you dont need to worry about being bitten.", "I will leave some gear to you in that room, so it would be best to grab it.", "Be safe out there!"])
+
+[node name="Signage401" parent="." unique_id=1259181952 instance=ExtResource("14_0oe44")]
+position = Vector2(261, 298)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 401"
+
+[node name="Signage402" parent="." unique_id=460610638 instance=ExtResource("14_0oe44")]
+position = Vector2(536.3999, 299.59998)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 402"
+
+[node name="Signage403" parent="." unique_id=1195844358 instance=ExtResource("14_0oe44")]
+position = Vector2(808.99994, 299.19995)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 403"
+
+[node name="Signage404" parent="." unique_id=1744000109 instance=ExtResource("14_0oe44")]
+position = Vector2(1080.2, 298.19998)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 404"
+
+[node name="Signage405" parent="." unique_id=1016902069 instance=ExtResource("15_qaiic")]
+position = Vector2(215.00002, 384.59998)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 405"
+
+[node name="Signage406" parent="." unique_id=2018739619 instance=ExtResource("15_qaiic")]
+position = Vector2(487.00003, 384.8)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 406"
+
+[node name="Signage407" parent="." unique_id=516843168 instance=ExtResource("15_qaiic")]
+position = Vector2(760.7999, 385.19998)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 407"
+
+[node name="Signage408" parent="." unique_id=707978287 instance=ExtResource("15_qaiic")]
+position = Vector2(1030.9999, 385.19998)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 408"
+
+[node name="Signage409" parent="." unique_id=657191533 instance=ExtResource("14_0oe44")]
+position = Vector2(1624.3999, 299.4)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 409"
+
+[node name="Signage410" parent="." unique_id=2121616653 instance=ExtResource("14_0oe44")]
+position = Vector2(1896.5999, 297.8)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 410"
+
+[node name="Signage411" parent="." unique_id=1716697630 instance=ExtResource("14_0oe44")]
+position = Vector2(2169.2, 298.59998)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 411"
+
+[node name="Signage412" parent="." unique_id=768101077 instance=ExtResource("15_qaiic")]
+position = Vector2(1576.2, 383.99997)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 412"
+
+[node name="Signage413" parent="." unique_id=438681384 instance=ExtResource("15_qaiic")]
+position = Vector2(1848.1998, 384.59998)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 413"
+
+[node name="Signage414" parent="." unique_id=1575832133 instance=ExtResource("15_qaiic")]
+position = Vector2(2119.5996, 383.99997)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 414"
+
+[node name="Signage415" parent="." unique_id=1727574704 instance=ExtResource("14_0oe44")]
+position = Vector2(259.80002, 1643.2)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 415"
+
+[node name="Signage416" parent="." unique_id=575271527 instance=ExtResource("14_0oe44")]
+position = Vector2(536.3999, 1643.2)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 416"
+
+[node name="Signage417" parent="." unique_id=1393242507 instance=ExtResource("14_0oe44")]
+position = Vector2(808.19995, 1643.2)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 417"
+
+[node name="Signage418" parent="." unique_id=799706146 instance=ExtResource("14_0oe44")]
+position = Vector2(1079.7999, 1643.2)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 418"
+
+[node name="Signage419" parent="." unique_id=127199683 instance=ExtResource("15_qaiic")]
+position = Vector2(214.79999, 1728.7999)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 419"
+
+[node name="Signage420" parent="." unique_id=1548788959 instance=ExtResource("15_qaiic")]
+position = Vector2(486.99997, 1728.9999)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 420"
+
+[node name="Signage421" parent="." unique_id=205557935 instance=ExtResource("15_qaiic")]
+position = Vector2(758.99994, 1728.7999)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 421"
+
+[node name="Signage422" parent="." unique_id=1076203590 instance=ExtResource("15_qaiic")]
+position = Vector2(1032.2, 1729.3999)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 422"
+
+[node name="Signage423" parent="." unique_id=1455100405 instance=ExtResource("14_0oe44")]
+position = Vector2(1624.3998, 1643.5997)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 423"
+
+[node name="Signage424" parent="." unique_id=265136160 instance=ExtResource("14_0oe44")]
+position = Vector2(1896.7999, 1643.3999)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 424"
+
+[node name="Signage425" parent="." unique_id=226547882 instance=ExtResource("14_0oe44")]
+position = Vector2(2168.9998, 1643.3999)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 425"
+
+[node name="Signage426" parent="." unique_id=340606838 instance=ExtResource("15_qaiic")]
+position = Vector2(1575.5999, 1728.9998)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 426"
+
+[node name="Signage427" parent="." unique_id=446932624 instance=ExtResource("15_qaiic")]
+position = Vector2(1851.9999, 1728.7999)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 427"
+
+[node name="Signage428" parent="." unique_id=1655501170 instance=ExtResource("15_qaiic")]
+position = Vector2(2119.2, 1728.7999)
+scale = Vector2(0.99999994, 0.99999994)
+sign_text = "Room 428"
 
 [node name="Player" parent="." unique_id=1940328253 instance=ExtResource("11_8rsml")]
-z_index = 2
-position = Vector2(248.59999, 77.2)
+position = Vector2(200, 125.6)
 
-[node name="PickupItem" parent="." unique_id=1452979519 instance=ExtResource("15_0qgq1")]
-z_index = 0
+[node name="knife" parent="." unique_id=1452979519 instance=ExtResource("15_0qgq1")]
 texture_filter = 1
-position = Vector2(1131, 538.2)
+position = Vector2(1130.9999, 538.19995)
+scale = Vector2(0.99999994, 0.99999994)
 item_name = "Knife"
 item_type = "weapon"
+
+[node name="key" parent="." unique_id=1802222992 instance=ExtResource("15_0qgq1")]
+position = Vector2(2218.4001, 1881.5999)
+scale = Vector2(0.49999997, 0.49999997)
+item_name = "3F Main Key"
+item_type = "key"
+
+[node name="FlashLight" parent="." unique_id=2047569124 instance=ExtResource("15_0qgq1")]
+position = Vector2(2163.5999, 1948.1998)
+scale = Vector2(0.49999997, 0.49999997)
+item_name = "Flashlight"
+item_type = "flashlight"
+
+[node name="Checkpoint" parent="." unique_id=1216549498 instance=ExtResource("21_hdg0t")]
+position = Vector2(1110.9999, 539.19995)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Checkpoint2" parent="." unique_id=1003385300 instance=ExtResource("21_hdg0t")]
+position = Vector2(2201.2, 1882.1998)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="LevelTransition" parent="." unique_id=355606337 instance=ExtResource("22_8468n")]
+position = Vector2(2006.5997, 1025.2001)
+scale = Vector2(11.999999, 11.999999)
+next_level_path = "uid://jar64l0cef7i"
+
+[node name="Zombie" parent="." unique_id=1244593536 instance=ExtResource("20_klhct")]
+position = Vector2(1234.6, 334.6)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Zombie2" parent="." unique_id=1516076509 instance=ExtResource("20_klhct")]
+position = Vector2(1445.5999, 769.6)
+scale = Vector2(0.99999994, 0.99999994)
+roam_direction = Vector2(0, 1)
+
+[node name="Zombie3" parent="." unique_id=772900112 instance=ExtResource("20_klhct")]
+position = Vector2(1177.7998, 1080.3999)
+scale = Vector2(0.99999994, 0.99999994)
+roam_direction = Vector2(0, 1)
+
+[node name="Zombie4" parent="." unique_id=1161286125 instance=ExtResource("20_klhct")]
+position = Vector2(1595.3999, 1682.2)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Zombie5" parent="." unique_id=106803177 instance=ExtResource("20_klhct")]
+position = Vector2(1930.3999, 1677.7999)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Zombie6" parent="." unique_id=1536235242 instance=ExtResource("20_klhct")]
+position = Vector2(1383.9999, 1492.2)
+scale = Vector2(0.99999994, 0.99999994)
+roam_direction = Vector2(0, 1)
+
+[node name="Zombie7" parent="." unique_id=1282026226 instance=ExtResource("20_klhct")]
+position = Vector2(1119.6, 1677.7999)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Zombie8" parent="." unique_id=195656778 instance=ExtResource("20_klhct")]
+position = Vector2(349.99997, 1680.5997)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Zombie9" parent="." unique_id=274657960 instance=ExtResource("20_klhct")]
+position = Vector2(1535.9998, 1224.2)
+scale = Vector2(0.99999994, 0.99999994)
 
 [node name="InventoryUI" parent="." unique_id=358630592 instance=ExtResource("15_rokei")]
 
 [node name="PauseMenu" parent="." unique_id=1475522744 instance=ExtResource("14_8rsml")]
-visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=255860636]
-visible = false
-color = Color(0, 0, 0, 1)
+color = Color(0.051970966, 0.051970966, 0.051970936, 1)

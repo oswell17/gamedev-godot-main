@@ -126,3 +126,25 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 stretch_mode = 4
+
+[node name="ContextMenu" type="Panel" parent="." unique_id=657528309]
+visible = false
+custom_minimum_size = Vector2(100, 70)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContextMenu" unique_id=1084297732]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UseButton" type="Button" parent="ContextMenu/VBoxContainer" unique_id=1125620966]
+layout_mode = 2
+text = "Use"
+
+[node name="DropButton" type="Button" parent="ContextMenu/VBoxContainer" unique_id=410255498]
+layout_mode = 2
+text = "Drop"
