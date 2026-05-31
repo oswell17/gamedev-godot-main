@@ -18,6 +18,8 @@ var current_armor_prefix: String = ""
 var is_dead: bool = false
 var is_attacking: bool = false 
 var current_armor: int = 0
+var max_ammo: int = 15
+var current_ammo: int = 15
 
 # NEW: A list to track any enemy currently inside our weapon hitbox!
 var enemies_in_range: Array[Node2D] = []
@@ -28,6 +30,8 @@ var enemies_in_range: Array[Node2D] = []
 @onready var armor_bar: ProgressBar = $UI/ArmorBar
 @onready var death_screen: ColorRect = $UI/DeathScreen
 @onready var gun_raycast: RayCast2D = $GunRayCast
+@onready var weapon_label: Label = $UI/WeaponLabel
+@onready var weapon_icon: TextureRect = $UI/WeaponIcon # <--- NEW LINE
 
 func _ready() -> void:
 	if Global.has_checkpoint == true:
@@ -57,11 +61,13 @@ func _ready() -> void:
 func _on_weapon_equipped(weapon_name: String) -> void:
 	if weapon_name == "Knife":
 		current_weapon_prefix = "knife_"
-	elif weapon_name == "Pistol": # (Make sure this exactly matches your item_name)
+	elif weapon_name == "Pistol": 
 		current_weapon_prefix = "gun_"
-		
 	else:
 		current_weapon_prefix = ""
+		
+	# --- NEW: Update the UI whenever we switch weapons! ---
+	update_hud()
 		
 func _on_armor_equipped(armor_name: String) -> void:
 	# Make sure the name matches whatever you typed into the pickup_item script!
@@ -189,24 +195,25 @@ func perform_attack() -> void:
 			
 	# --- RANGED ATTACK (PISTOL) ---
 	elif current_weapon_prefix == "gun_":
+		
+		# --- NEW: Check if we have bullets! ---
+		if current_ammo <= 0:
+			print("Click! Out of ammo!")
+			return # Stop the function here so the gun doesn't shoot!
+			
+		# Subtract a bullet and update the UI text
+		current_ammo -= 1
+		update_hud()
+		
 		print("--- FIRING GUN ---")
 		
-		# Force the raycast to update its math immediately before checking
 		gun_raycast.force_raycast_update() 
 		
-		# Did the laser hit something?
 		if gun_raycast.is_colliding():
-			
-			# Get the exact object the laser touched
 			var target = gun_raycast.get_collider()
-			
-			# Check if the thing we shot has health
 			if target.has_method("take_damage"):
 				print("Headshot! Dealt massive damage!")
-				target.take_damage(50) # Guns should do more damage!
-			else:
-				print("You shot a wall or an object!")
-				
+				target.take_damage(50) 
 		else:
 			print("You shot into the empty distance!")
 
@@ -320,3 +327,36 @@ func _on_inventory_changed() -> void:
 			$Flashlight.visible = false
 			if has_node("AuraLight"):
 				$AuraLight.visible = true
+				
+func update_hud() -> void:
+	# Update the bars
+	health_bar.value = current_health
+	armor_bar.value = current_armor
+	
+	if GlobalInventory.equipped_weapon != "":
+		# --- NEW: Fetch the Icon from the Global Inventory ---
+		var icon_path = ""
+		for i in range(GlobalInventory.MAX_SLOTS):
+			var item = GlobalInventory.items[i]
+			if item != null and item["name"] == GlobalInventory.equipped_weapon:
+				icon_path = item["icon"]
+				break # Stop searching once we find it!
+				
+		# Apply the icon to our TextureRect
+		if icon_path != "":
+			weapon_icon.texture = load(icon_path)
+			weapon_icon.show()
+		# -----------------------------------------------------
+		
+		# Update the Weapon Text
+		if GlobalInventory.equipped_weapon == "Pistol":
+			weapon_label.text = "Equipped: Pistol | Ammo: " + str(current_ammo) + "/" + str(max_ammo)
+		else:
+			weapon_label.text = "Equipped: " + GlobalInventory.equipped_weapon
+			
+		weapon_label.show()
+		
+	else:
+		# Hide both the label and the icon if our hands are empty
+		weapon_label.hide()
+		weapon_icon.hide()
