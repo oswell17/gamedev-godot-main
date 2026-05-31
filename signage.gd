@@ -1,26 +1,44 @@
 extends Area2D
 
-# This creates a text box in the Inspector so you can easily type "Room 101", "Cafeteria", etc.
 @export var sign_text: String = "Room 000"
 
-# Grab the Label node
-@onready var display_label: Label = $Label
+# We use this to track if the player is currently close enough to read the sign
+var player_in_zone: bool = false 
 
 func _ready() -> void:
-	# Update the label to show whatever you typed in the Inspector
-	display_label.text = sign_text
-	
-	# Hide it when the game starts
-	display_label.hide()
+	# You can delete the Label node from the signage.tscn if you no longer want it,
+	# or change its text to say "[E] Read" so the player knows they can interact.
+	if has_node("Label"):
+		$Label.hide()
+
+func _input(event: InputEvent) -> void:
+	# If the player is in the zone AND they press the interact button...
+	if player_in_zone and event.is_action_pressed("interact"):
+		
+		# Stop this input from accidentally triggering other things in the same frame
+		get_viewport().set_input_as_handled()
+		
+		# Show the floating prompt if you kept it
+		if has_node("Label"):
+			$Label.hide() 
+			
+		# Call the DialogManager and pass the text. 
+		# We put sign_text inside [] because show_dialogue expects an Array[String].
+		DialogManager.show_dialogue([sign_text])
+
 
 # --- SIGNALS ---
 
 func _on_body_entered(body: Node2D) -> void:
-	# If the player steps inside the collision circle, show the text!
 	if body.name == "Player":
-		display_label.show()
+		player_in_zone = true
+		# Optional: Show a little "[E] Read" prompt when they get close
+		if has_node("Label"):
+			$Label.text = "[E] Read"
+			$Label.show()
 
 func _on_body_exited(body: Node2D) -> void:
-	# If the player steps out of the circle, hide it again!
 	if body.name == "Player":
-		display_label.hide()
+		player_in_zone = false
+		if has_node("Label"):
+			$Label.hide()

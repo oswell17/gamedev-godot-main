@@ -24,7 +24,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if body.global_position.y < global_position.y:
 			prompt.position.y = 0
 		else:
-			prompt.position.y = 0
+			prompt.position.y = 100
 			
 		prompt.show()
 

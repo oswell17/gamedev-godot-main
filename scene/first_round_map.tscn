@@ -25702,4 +25702,5 @@ scale = Vector2(0.99999994, 0.99999994)
 [node name="PauseMenu" parent="." unique_id=1475522744 instance=ExtResource("14_8rsml")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=255860636]
+visible = false
 color = Color(0.051970966, 0.051970966, 0.051970936, 1)

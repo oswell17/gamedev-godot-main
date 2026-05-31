@@ -5,6 +5,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8j3qr"]
 size = Vector2(44, 33)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_unshaded"]
+light_mode = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8j3qr"]
+bg_color = Color(0.7733435, 0.42210263, 0, 1)
+
 [node name="Signage" type="Area2D" unique_id=1259181952]
 script = ExtResource("1_8j3qr")
 
@@ -14,19 +20,29 @@ shape = SubResource("RectangleShape2D_8j3qr")
 
 [node name="Label" type="Label" parent="." unique_id=997532350]
 z_index = 2
+material = SubResource("CanvasItemMaterial_unshaded")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -75.0
-offset_top = -82.0
-offset_right = 77.0
-offset_bottom = -40.0
+offset_left = -76.0
+offset_top = -34.0
+offset_right = 76.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 30
-text = "asdasdasd"
+text = "[E] Read"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=1562508293]
+offset_left = -22.0
+offset_top = 4.0
+offset_right = 23.0
+offset_bottom = 12.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8j3qr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
